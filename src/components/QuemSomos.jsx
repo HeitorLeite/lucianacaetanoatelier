@@ -1,5 +1,3 @@
-import React from "react";
-
 const QuemSomos = () => {
   return (
     <section className="w-full py-20 px-4 md:px-8 bg-white text-black">

@@ -1,5 +1,6 @@
 import React from "react";
 import imagemFundo from "../assets/img/necessarie_mar.png";
+import logo from "../assets/img/logo.png";
 
 const Hero = () => {
   return (
@@ -13,10 +14,12 @@ const Hero = () => {
       ></div>
 
       <nav className="absolute top-0 w-full flex justify-center items-center py-10 z-20">
-        <div className="absolute left-8 hidden md:block">
-          <div className="w-8 h-8 border border-white flex items-center justify-center rounded-sm opacity-80">
-            <span className="text-xs">LOGO</span>
-          </div>
+        <div className="absolute left-10 top-2 hidden md:block">
+          <img
+            src={logo}
+            alt="Logo Luciana Caetano Ateliê"
+            className="w-32 h-auto opacity-90 hover:opacity-100 transition duration-300"
+          />
         </div>
 
         <ul className="flex gap-30 text-sm font-light uppercase tracking-[0.2em]">
