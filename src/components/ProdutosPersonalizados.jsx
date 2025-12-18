@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ProdutosPersonalizados = () => {
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
@@ -12,98 +12,105 @@ const ProdutosPersonalizados = () => {
     return new URL(`../assets/img/${nomeArquivo}`, import.meta.url).href;
   };
 
+  const linkWhatsAppGeral = `https://wa.me/5512981124495?text=${encodeURIComponent(
+    "Olá! Gostaria de encomendar um produto personalizado."
+  )}`;
+
+  const getLinkWhatsAppProduto = (nomeProduto) => {
+    const msg = `Olá! Gostaria de encomendar o "${nomeProduto}".`;
+    return `https://wa.me/5512981124495?text=${encodeURIComponent(msg)}`;
+  };
+
   const listaProdutos = [
     {
       id: 1,
       nome: "Estojo e Bolsa higienica Stitch",
-      desc: "",
+      desc: "Fofura e organização com estampa exclusiva do Stitch.",
     },
     {
       id: 2,
-      nome: "Estoje e Garrafinha personagens",
-      desc: "Perfeita para viagens curtas de fim de semana.",
+      nome: "Estojo e Garrafinha personagens",
+      desc: "Estojo e garrafa combinando para um dia a dia com estilo.",
     },
     {
       id: 3,
       nome: "Estojo e Bolsa higienica astronauta",
-      desc: "Conjunto completo com 3 tamanhos diferentes.",
+      desc: "Conjunto versátil para manter tudo no seu devido lugar.",
     },
     {
       id: 4,
       nome: "Bolsas higienicas Stitch",
-      desc: "Organize seus pincéis e proteja as cerdas.",
+      desc: "Proteja seus pincéis e maquiagens com elegância.",
     },
     {
       id: 5,
       nome: "Mochila e Estojo Batman",
-      desc: "Estilo e praticidade para passeios à tarde.",
+      desc: "Bolsa e estojo coordenados, unindo charme e utilidade.",
     },
     {
       id: 6,
       nome: "Bolsa higienica e Garrafinha homem-aranha",
-      desc: "Espaço de sobra para toalha e protetor solar.",
+      desc: "Toalha, garrafinha e necessaire: o kit escolar perfeito.",
     },
     {
       id: 7,
       nome: "Estojo sorvete",
-      desc: "Personalizado com o nome para a volta às aulas.",
-      imagensExtras: ["produto_7_foto_2.jpg"],
+      desc: "Cabe tudo! Ideal para quem tem muitos lápis e canetas.",
     },
     {
       id: 8,
       nome: "Bolsa higienica sorvete",
-      desc: "Térmica, mantém seus produtos na temperatura ideal.",
+      desc: "Proteção total para levar seus produtos de higiene na bolsa.",
     },
     {
       id: 9,
       nome: "Lancheira dinosssauro",
-      desc: "Pequeno e prático para o dia a dia.",
+      desc: "Mantenha seu lanche fresco em um tamanho compacto.",
     },
     {
       id: 10,
       nome: "Bolsa camuflada",
-      desc: "Formato quadrado que cabe muita coisa.",
+      desc: "Design quadrado e espaçoso para todas as suas necessidades.",
     },
     {
       id: 11,
       nome: "Bolsinha e Bolsa higienica Stitch",
-      desc: "Separe suas roupas e otimize espaço.",
+      desc: "Organize itens menores e maiores com praticidade na mala.",
     },
     {
       id: 12,
       nome: "Estojo frutas",
-      desc: "Proteção acolchoada com estampa exclusiva.",
-      imagensExtras: ["produto_12_foto_2.jpg"],
+      desc: "Segurança extra e estampa vibrante para seus materiais.",
     },
     {
       id: 13,
       nome: "Toalinha corinthians",
-      desc: "Para levar escova e pasta de dente no trabalho.",
+      desc: "Toque macio com personalização delicada e exclusiva.",
     },
     {
       id: 14,
       nome: "Estojos Stitch",
-      desc: "Substitua sacolas plásticas com estilo.",
+      desc: "Estilo e funcionalidade para a hora da aula.",
     },
     {
       id: 15,
       nome: "Estojo Sonic",
-      desc: "Compacta para levar celular e documentos.",
+      desc: "Compactos e práticos para separar canetas de lápis de cor.",
     },
     {
       id: 16,
       nome: "Avental Minie",
-      desc: "Leve suas refeições com segurança e estilo.",
+      desc: "O modelo tradicional indispensável, com seu toque pessoal.",
     },
     {
       id: 17,
       nome: "Bolsinha Stitch",
-      desc: "Proteja seus óculos de sol dentro da bolsa.",
+      desc: "Prática para guardar todo tipo de item.",
     },
     {
       id: 18,
       nome: "Estojo e Toalinhas Stitch",
-      desc: "Mantenha seus remédios organizados em casa.",
+      desc: "Estojo espaço e toalha com toque macio.",
     },
   ];
 
@@ -118,16 +125,13 @@ const ProdutosPersonalizados = () => {
 
   const getImagensAtuais = () => {
     if (!produtoSelecionado) return [];
-
     const mainImg = getImageUrl(produtoSelecionado.id);
-
     let extras = [];
     if (produtoSelecionado.imagensExtras) {
       extras = produtoSelecionado.imagensExtras.map((imgName) =>
         getExtraImageUrl(imgName)
       );
     }
-
     return [mainImg, ...extras];
   };
 
@@ -148,7 +152,10 @@ const ProdutosPersonalizados = () => {
   };
 
   return (
-    <section className="w-full py-20 px-4 bg-white text-black text-center font-['Poppins']">
+    <section
+      id="produtos"
+      className="w-full py-20 px-4 bg-white text-black text-center font-['Poppins']"
+    >
       <h2 className="text-2xl md:text-3xl font-bold mb-16 text-black">
         Veja todos os nossos produtos personalizados
       </h2>
@@ -171,7 +178,6 @@ const ProdutosPersonalizados = () => {
                     "https://via.placeholder.com/300?text=Foto+Indisponivel";
                 }}
               />
-
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="bg-white/90 text-black px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-md translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   Ver Detalhes
@@ -195,7 +201,9 @@ const ProdutosPersonalizados = () => {
         </p>
 
         <a
-          href="#"
+          href={linkWhatsAppGeral}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block bg-[#2D8CBA] text-white py-3 px-12 rounded-full font-bold uppercase text-sm tracking-widest hover:opacity-90 transition shadow-md hover:-translate-y-1"
         >
           Encomende o seu
@@ -278,7 +286,6 @@ const ProdutosPersonalizados = () => {
                       />
                     </svg>
                   </button>
-
                   <div className="absolute bottom-4 flex gap-2">
                     {imagensAtuais.map((_, idx) => (
                       <div
@@ -303,7 +310,9 @@ const ProdutosPersonalizados = () => {
               </p>
 
               <a
-                href="#"
+                href={getLinkWhatsAppProduto(produtoSelecionado.nome)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-[#2D8CBA] text-white py-3 px-8 rounded-full font-bold uppercase text-center text-sm tracking-widest hover:opacity-90 transition shadow-md w-full md:w-auto"
               >
                 Quero encomendar
