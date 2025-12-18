@@ -9,17 +9,17 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#2D8CBA] text-white font-['Poppins']">
-      <div className="max-w-7xl mx-auto py-12 px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+      <div className="max-w-7xl mx-auto py-8 md:py-12 px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div className="shrink-0">
           <img
             src={logo}
             alt="Logo Luciana Caetano"
-            className="w-32 h-auto opacity-90 hover:opacity-100 transition duration-300"
+            className="w-24 md:w-32 h-auto opacity-90 hover:opacity-100 transition duration-300"
           />
         </div>
 
         <div className="flex-1 max-w-lg">
-          <p className="text-lg md:text-xl font-medium leading-relaxed">
+          <p className="text-base md:text-xl font-medium leading-relaxed">
             Encomende a sua necessarie ou entre em contato para personalizar
           </p>
         </div>

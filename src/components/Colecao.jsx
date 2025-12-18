@@ -1,3 +1,4 @@
+import React from "react";
 import img1 from "../assets/img/necessarie_1.png";
 import img2 from "../assets/img/necessarie_2.png";
 import img3 from "../assets/img/necessarie_3.png";
@@ -17,17 +18,17 @@ const Colecao = () => {
   return (
     <section
       id="colecao"
-      className="w-full py-20 px-4 bg-white text-black text-center"
+      className="w-full py-12 md:py-20 px-4 bg-white text-black text-center"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
+      <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12">
         Nossa coleção de verão
       </h2>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
         {produtos.map((imagem, index) => (
           <div
             key={index}
-            className="w-full aspect-square bg-gray-100 rounded-[2.5rem] flex items-center justify-center hover:shadow-lg transition duration-300 cursor-pointer overflow-hidden"
+            className="w-full aspect-square bg-gray-100 rounded-4xl flex items-center justify-center hover:shadow-lg transition duration-300 cursor-pointer overflow-hidden"
           >
             <img
               src={imagem}
@@ -38,8 +39,8 @@ const Colecao = () => {
         ))}
       </div>
 
-      <div className="space-y-8">
-        <p className="text-lg md:text-xl font-medium">
+      <div className="space-y-6 md:space-y-8">
+        <p className="text-base md:text-xl font-medium px-4">
           Entre em contato para encomendar a sua necessarie
         </p>
 
@@ -47,7 +48,7 @@ const Colecao = () => {
           href={linkWhatsApp}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#2D8CBA] text-white py-3 px-10 rounded-full font-bold uppercase text-sm tracking-widest hover:opacity-90 transition shadow-md"
+          className="inline-block bg-[#2D8CBA] text-white py-3 px-8 md:px-10 rounded-full font-bold uppercase text-xs md:text-sm tracking-widest hover:opacity-90 transition shadow-md"
         >
           Encomende a sua
         </a>

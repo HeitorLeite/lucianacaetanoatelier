@@ -154,13 +154,13 @@ const ProdutosPersonalizados = () => {
   return (
     <section
       id="produtos"
-      className="w-full py-20 px-4 bg-white text-black text-center font-['Poppins']"
+      className="w-full py-12 md:py-20 px-4 bg-white text-black text-center font-['Poppins']"
     >
-      <h2 className="text-2xl md:text-3xl font-bold mb-16 text-black">
+      <h2 className="text-2xl md:text-3xl font-bold mb-12 md:mb-16 text-black">
         Veja todos os nossos produtos personalizados
       </h2>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12 mb-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12 mb-16 md:mb-20">
         {listaProdutos.map((produto) => (
           <div
             key={produto.id}
@@ -189,14 +189,14 @@ const ProdutosPersonalizados = () => {
               {produto.nome}
             </h3>
             <p className="text-gray-500 text-sm max-w-55 leading-relaxed">
-              {produto.desc || "Descrição em breve..."}
+              {produto.desc}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="space-y-8">
-        <p className="text-base md:text-lg text-black">
+      <div className="space-y-6 md:space-y-8">
+        <p className="text-base md:text-lg text-black px-4">
           Gostou? Entre em contato já para encomendar e personalizar o seu!
         </p>
 
@@ -204,7 +204,7 @@ const ProdutosPersonalizados = () => {
           href={linkWhatsAppGeral}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#2D8CBA] text-white py-3 px-12 rounded-full font-bold uppercase text-sm tracking-widest hover:opacity-90 transition shadow-md hover:-translate-y-1"
+          className="inline-block bg-[#2D8CBA] text-white py-3 px-10 md:px-12 rounded-full font-bold uppercase text-xs md:text-sm tracking-widest hover:opacity-90 transition shadow-md hover:-translate-y-1"
         >
           Encomende o seu
         </a>
@@ -216,12 +216,12 @@ const ProdutosPersonalizados = () => {
           onClick={fecharModal}
         >
           <div
-            className="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+            className="bg-white rounded-3xl w-full max-w-4xl max-h-[85vh] md:max-h-[90vh] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={fecharModal}
-              className="absolute top-4 right-4 z-10 p-2 bg-white/80 rounded-full hover:bg-gray-200 transition"
+              className="absolute top-3 right-3 z-10 p-2 bg-white/80 rounded-full hover:bg-gray-200 transition shadow-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +229,7 @@ const ProdutosPersonalizados = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
-                className="w-6 h-6 text-black"
+                className="w-5 h-5 md:w-6 md:h-6 text-black"
               >
                 <path
                   strokeLinecap="round"
@@ -239,11 +239,11 @@ const ProdutosPersonalizados = () => {
               </svg>
             </button>
 
-            <div className="w-full md:w-3/5 bg-gray-100 flex items-center justify-center relative aspect-square md:aspect-auto">
+            <div className="w-full md:w-3/5 bg-gray-100 flex items-center justify-center relative aspect-square md:aspect-auto h-64 md:h-auto shrink-0">
               <img
                 src={imagensAtuais[imagemAtualIndex]}
                 alt={produtoSelecionado.nome}
-                className="w-full h-full object-cover md:object-contain max-h-[50vh] md:max-h-full"
+                className="w-full h-full object-cover md:object-contain"
               />
 
               {imagensAtuais.length > 1 && (
@@ -258,7 +258,7 @@ const ProdutosPersonalizados = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className="w-5 h-5"
                     >
                       <path
                         strokeLinecap="round"
@@ -277,7 +277,7 @@ const ProdutosPersonalizados = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className="w-5 h-5"
                     >
                       <path
                         strokeLinecap="round"
@@ -300,13 +300,12 @@ const ProdutosPersonalizados = () => {
               )}
             </div>
 
-            <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center text-left bg-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black">
+            <div className="w-full md:w-2/5 p-6 md:p-12 flex flex-col justify-center text-left bg-white overflow-y-auto">
+              <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 text-black">
                 {produtoSelecionado.nome}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg mb-8">
-                {produtoSelecionado.desc ||
-                  "Produto personalizado feito com muito carinho. Entre em contato para escolher suas estampas e cores!"}
+              <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-6 md:mb-8">
+                {produtoSelecionado.desc}
               </p>
 
               <a
