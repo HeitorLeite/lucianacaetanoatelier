@@ -28,8 +28,8 @@ const QuemSomos = () => {
 
           <div className="text-gray-600 leading-relaxed text-sm md:text-base space-y-4 text-justify">
             <p>
-              Meu nome é Luciana Aparecida Caetano Carvalho, tenho 46 anos,
-              casada com Reinaldo mãe do Miguel de 15 anos. Trabalhei em regime
+              Meu nome é Luciana Aparecida Caetano Carvalho, tenho 48 anos,
+              casada com Reinaldo mãe do Miguel de 17 anos. Trabalhei em regime
               CLT por 15 anos, mas um dia me libertei.
             </p>
             <p>
